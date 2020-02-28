@@ -16,7 +16,7 @@ namespace Geometry
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GraphcObjects());
+            Application.Run(new GraphicObjects());
         }
     }
 }

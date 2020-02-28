@@ -10,11 +10,39 @@ using System.Windows.Forms;
 
 namespace Geometry
 {
-    public partial class GraphcObjects : Form
+    public partial class GraphicObjects : Form
     {
-        public GraphcObjects()
+        Bitmap bmp;
+        Graphics graph;
+        Pen pen;
+
+        Line Line1;
+        Line Line2;
+        public GraphicObjects()
         {
             InitializeComponent();
+            Init();
+            Draw();
+        }
+        private void Init()
+        {
+            Line1 = new Line(100,100,200,10);
+            Line2 = new Line(200,10,300,100);
+            bmp = new Bitmap(Picture.Width, Picture.Height);
+            graph = Graphics.FromImage(bmp);
+            pen = new Pen(Color.Blue);
+        }
+        private void Draw()
+        {
+            
+            graph.DrawRectangle(pen, 100, 100, 200, 200);
+            Draw(Line1);
+            Draw(Line2);
+            Picture.Image = bmp;
+        }
+        private void Draw(Line line)
+        {
+            graph.DrawLine(pen, line.x1, line.y1, line.x2, line.y2);
         }
     }
 }
