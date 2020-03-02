@@ -19,6 +19,7 @@ namespace Geometry
         Line Line1;
         Line Line2;
         Box Box1;
+        Circle Circle1;
 
         public GraphicObjects()
         {
@@ -31,6 +32,8 @@ namespace Geometry
             Line1 = new Line(100,100,200,10);
             Line2 = new Line(200,10,300,100);
             Box1 = new Box(100, 100, 300, 300);
+            Circle1 = new Circle(200, 200, 100);
+
 
             bmp = new Bitmap(Picture.Width, Picture.Height);
             graph = Graphics.FromImage(bmp);
@@ -43,6 +46,7 @@ namespace Geometry
             Draw(Line1);
             Draw(Line2);
             Draw(Box1);
+            Draw(Circle1);
             Picture.Image = bmp;
         }
         private void Draw(Line line)
@@ -52,6 +56,10 @@ namespace Geometry
         private void Draw(Box box)
         {
             graph.DrawRectangle(pen, box.x1, box.x1, box.width, box.height);
+        }
+        private void Draw(Circle circle)
+        {
+            graph.DrawEllipse(pen, circle.LeftUpX,circle.LefUpY, circle.Width, circle.Height);
         }
     }
 }
