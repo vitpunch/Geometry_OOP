@@ -11,10 +11,17 @@ namespace Geometry
         public int LeftUpX, LefUpY, Width,Height;
         public Circle(int CenterX, int CenterY, int Radius)
         {
-            this.LeftUpX = CenterX - Radius;
-            this.LefUpY = CenterY - Radius;
-            this.Width = Radius * 2;
-            this.Height = Radius * 2;
+            LeftUpX = CenterX - Radius;
+            LefUpY = CenterY - Radius;
+            Width = Radius * 2;
+            Height = Radius * 2;
+        }
+        public Circle(Pixel Center, int Radius)
+        {
+            LeftUpX = Center.x - Radius;
+            LefUpY = Center.y - Radius;
+            Width = Radius * 2;
+            Height = Radius * 2;
 
         }
     }

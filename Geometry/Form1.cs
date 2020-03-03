@@ -10,6 +10,16 @@ using System.Windows.Forms;
 
 namespace Geometry
 {
+    public struct Pixel
+    {
+        public int x, y;
+
+        public Pixel(int x, int y)
+        {
+            this.x = x;
+            this.y = y;
+        }
+    }
     public partial class GraphicObjects : Form
     {
         Bitmap bmp;
@@ -21,6 +31,9 @@ namespace Geometry
         Box Box1;
         Circle Circle1;
 
+        Pixel A, B, C, D, E, O;
+
+
         public GraphicObjects()
         {
             InitializeComponent();
@@ -29,20 +42,26 @@ namespace Geometry
         }
         private void Init()
         {
-            Line1 = new Line(100,100,200,10);
-            Line2 = new Line(200,10,300,100);
-            Box1 = new Box(100, 100, 300, 300);
-            Circle1 = new Circle(200, 200, 100);
+            A = new Pixel(100, 300);
+            B = new Pixel(300, 300);
+            C = new Pixel(100, 100);
+            D = new Pixel(300, 100);
+            E = new Pixel(200, 10);
+            O = new Pixel(200, 200);
 
 
+
+            Line1 = new Line(C, E);
+            Line2 = new Line(D, E);
+            Box1 = new Box(D, A);
+            Circle1 = new Circle(O, 100);
+            
             bmp = new Bitmap(Picture.Width, Picture.Height);
             graph = Graphics.FromImage(bmp);
             pen = new Pen(Color.Blue);
         }
         private void Draw()
-        {
-            
-            graph.DrawRectangle(pen, 100, 100, 200, 200);
+        {            
             Draw(Line1);
             Draw(Line2);
             Draw(Box1);
