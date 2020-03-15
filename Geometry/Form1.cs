@@ -53,7 +53,7 @@ namespace Geometry
 
             Line1 = new Line(C, E);
             Line2 = new Line(D, E);
-            Box1 = new Box(D, A);
+            Box1 = new Box(B, C);
             Circle1 = new Circle(O, 100);
             
             bmp = new Bitmap(Picture.Width, Picture.Height);
@@ -70,15 +70,15 @@ namespace Geometry
         }
         private void Draw(Line line)
         {
-            graph.DrawLine(pen, line.x1, line.y1, line.x2, line.y2);
+            graph.DrawLine(pen, line.Start.x, line.Start.y, line.End.x, line.End.y);
         }
         private void Draw(Box box)
         {
-            graph.DrawRectangle(pen, box.x1, box.x1, box.width, box.height);
+            graph.DrawRectangle(pen, box.FirstCorner.x, box.FirstCorner.y, box.width, box.height);
         }
         private void Draw(Circle circle)
         {
-            graph.DrawEllipse(pen, circle.LeftUpX,circle.LefUpY, circle.Width, circle.Height);
+            graph.DrawEllipse(pen, circle.LeftUpCorner .x,circle.LeftUpCorner.y, circle.Width, circle.Height);
         }
     }
 }

@@ -9,30 +9,38 @@ namespace Geometry
 {
     class Box
     {
-        public int x1, y1, x2, y2, width, height;
-        public Box(Pixel FirstCornerc, Pixel OppositeCorner)
+        public int width, height;
+        public Pixel FirstCorner, OppositeCorner;
+        public Box(Pixel FirstCorner, Pixel OppositeCorner)
         {
-            if (FirstCornerc.x < OppositeCorner.x)
-                x1 = FirstCornerc.x;
-            else
-                x1 = OppositeCorner.x;
-            if (FirstCornerc.y < OppositeCorner.y)
-                x1 = FirstCornerc.y;
-            else
-                x1 = OppositeCorner.y;
-
-            width = Math.Abs(OppositeCorner.x - FirstCornerc.x);
-            height = Math.Abs(OppositeCorner.y - FirstCornerc.y);
+            this.FirstCorner = FirstCorner;
+            this.OppositeCorner = OppositeCorner;
+            VerifyCoord();
         }
 
         public Box(int x1, int y1, int x2, int y2)
+            :this(new Pixel(x1,y1),new Pixel (x2,y2))
         {
-            this.x1 = x1;
-            this.y1 = y1;
-            this.x2 = x2;
-            this.y2 = y2;
-            width = x2 - x1;
-            height = y2 - y1;
+        }
+        void VerifyCoord()
+        // проверка и преобразование входящих координат. Расчёт width и Height
+        // FirstCorner становится верхним левым
+        // OppositeCorner - правым нижним
+        {
+            if (FirstCorner.x > OppositeCorner.x)
+            {
+                int Temp = OppositeCorner.x;
+                OppositeCorner.x = FirstCorner.x;
+                FirstCorner.x = Temp;
+            }
+            if (FirstCorner.y > OppositeCorner.y)
+            {
+                int Temp = OppositeCorner.y;
+                OppositeCorner.y = FirstCorner.y;
+                FirstCorner.y = Temp;
+            }
+            width = Math.Abs(OppositeCorner.x - FirstCorner.x);
+            height = Math.Abs(OppositeCorner.y - FirstCorner.y);
         }
     }
 }

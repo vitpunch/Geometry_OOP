@@ -8,21 +8,16 @@ namespace Geometry
 {
     class Line
     {
-        public int x1, y1, x2, y2;
+        public Pixel Start, End;
 
-        public Line(int x1, int y1, int x2, int y2)
+        public Line(int StartX, int StartY, int EndX, int EndY)
+            : this(new Pixel(StartX, StartY), new Pixel(EndX, EndY))
         {
-            this.x1 = x1;
-            this.y1 = y1;
-            this.x2 = x2;
-            this.y2 = y2;
         }
-        public Line(Pixel A, Pixel B)
+        public Line(Pixel Start, Pixel End)
         {
-            x1 = A.x;
-            y1 = A.y;
-            x2 = B.x;
-            y2 = B.y;
+            this.Start = Start;
+            this.End = End;
         }
     }
 }

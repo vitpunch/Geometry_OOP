@@ -8,18 +8,15 @@ namespace Geometry
 {
     class Circle
     {
-        public int LeftUpX, LefUpY, Width,Height;
+        public int Width,Height;
+        public Pixel LeftUpCorner;
         public Circle(int CenterX, int CenterY, int Radius)
+            : this(new Pixel(CenterX, CenterY), Radius)
         {
-            LeftUpX = CenterX - Radius;
-            LefUpY = CenterY - Radius;
-            Width = Radius * 2;
-            Height = Radius * 2;
         }
         public Circle(Pixel Center, int Radius)
         {
-            LeftUpX = Center.x - Radius;
-            LefUpY = Center.y - Radius;
+            LeftUpCorner = new Pixel (Center.x-Radius,Center.y-Radius);
             Width = Radius * 2;
             Height = Radius * 2;
 
