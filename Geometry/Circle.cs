@@ -19,7 +19,10 @@ namespace Geometry
             LeftUpCorner = new Pixel (Center.x-Radius,Center.y-Radius);
             Width = Radius * 2;
             Height = Radius * 2;
-
+        }
+        public Circle(Pixel Center, Pixel AnyDotOnCircle)
+            :this(Center, Center.Distance(AnyDotOnCircle))
+        {
         }
     }
 }

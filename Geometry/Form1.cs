@@ -19,6 +19,12 @@ namespace Geometry
             this.x = x;
             this.y = y;
         }
+        public int Distance(Pixel OtherPixel)
+        {
+            int Cathetus1 = this.x - OtherPixel.x;
+            int Cathetus2 = this.y - OtherPixel.y;
+            return Convert.ToInt32(Math.Sqrt(Cathetus1 * Cathetus1 + Cathetus2 * Cathetus2));
+        }
     }
     public partial class GraphicObjects : Form
     {
@@ -30,6 +36,7 @@ namespace Geometry
         Line Line2;
         Box Box1;
         Circle Circle1;
+        Circle Circle2;
 
         Pixel A, B, C, D, E, O;
 
@@ -55,7 +62,8 @@ namespace Geometry
             Line2 = new Line(D, E);
             Box1 = new Box(B, C);
             Circle1 = new Circle(O, 100);
-            
+            Circle2 = new Circle(D, E);
+
             bmp = new Bitmap(Picture.Width, Picture.Height);
             graph = Graphics.FromImage(bmp);
             pen = new Pen(Color.Blue);
@@ -66,6 +74,7 @@ namespace Geometry
             Draw(Line2);
             Draw(Box1);
             Draw(Circle1);
+            Draw(Circle2);
             Picture.Image = bmp;
         }
         private void Draw(Line line)
