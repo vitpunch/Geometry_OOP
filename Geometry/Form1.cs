@@ -34,9 +34,12 @@ namespace Geometry
 
         Line Line1;
         Line Line2;
+        ColorLine Line3;
+        ColorLine Line4;
         Box Box1;
+        ColorBox Box2;
         Circle Circle1;
-        Circle Circle2;
+        ColorCircle Circle2;
 
         Pixel A, B, C, D, E, O;
 
@@ -60,9 +63,15 @@ namespace Geometry
 
             Line1 = new Line(C, E);
             Line2 = new Line(D, E);
+
             Box1 = new Box(B, C);
+            Box2 = new ColorBox(D, E, Color.Black);
+
             Circle1 = new Circle(O, 100);
-            Circle2 = new Circle(D, E);
+            Circle2 = new ColorCircle(O, 120,Color.Green);
+
+            Line3 = new ColorLine(E, B, Color.Green);
+            Line4 = new ColorLine(O, A, Color.Red);
 
             bmp = new Bitmap(Picture.Width, Picture.Height);
             graph = Graphics.FromImage(bmp);
@@ -75,7 +84,15 @@ namespace Geometry
             Draw(Box1);
             Draw(Circle1);
             Draw(Circle2);
+            Draw(Line3);
+            Draw(Line4);
+            Draw(Box2);
+
             Picture.Image = bmp;
+        }
+        private void Draw(ColorLine ColorLine)
+        {
+            graph.DrawLine(ColorLine.Pen, ColorLine.Start.x, ColorLine.Start.y, ColorLine.End.x, ColorLine.End.y);
         }
         private void Draw(Line line)
         {
@@ -85,9 +102,17 @@ namespace Geometry
         {
             graph.DrawRectangle(pen, box.FirstCorner.x, box.FirstCorner.y, box.width, box.height);
         }
+        private void Draw(ColorBox ColorBox)
+        {
+            graph.DrawRectangle(ColorBox.Pen, ColorBox.FirstCorner.x, ColorBox.FirstCorner.y, ColorBox.width, ColorBox.height);
+        }
         private void Draw(Circle circle)
         {
             graph.DrawEllipse(pen, circle.LeftUpCorner .x,circle.LeftUpCorner.y, circle.Width, circle.Height);
+        }
+        private void Draw(ColorCircle ColorCircle)
+        {
+            graph.DrawEllipse(ColorCircle.Pen, ColorCircle.LeftUpCorner.x, ColorCircle.LeftUpCorner.y, ColorCircle.Width, ColorCircle.Height);
         }
     }
 }
