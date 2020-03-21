@@ -39,7 +39,7 @@
             this.Picture.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Picture.Location = new System.Drawing.Point(0, 0);
             this.Picture.Name = "Picture";
-            this.Picture.Size = new System.Drawing.Size(818, 601);
+            this.Picture.Size = new System.Drawing.Size(1184, 811);
             this.Picture.TabIndex = 0;
             this.Picture.TabStop = false;
             // 
@@ -47,7 +47,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(818, 601);
+            this.ClientSize = new System.Drawing.Size(1184, 811);
             this.Controls.Add(this.Picture);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

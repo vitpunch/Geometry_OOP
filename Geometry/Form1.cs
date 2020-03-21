@@ -40,6 +40,8 @@ namespace Geometry
         ColorBox Box2;
         Circle Circle1;
         ColorCircle Circle2;
+        SnowMan SnowMan1;
+        SnowMan SnowMan2;
 
         Pixel A, B, C, D, E, O;
 
@@ -73,22 +75,30 @@ namespace Geometry
             Line3 = new ColorLine(E, B, Color.Green);
             Line4 = new ColorLine(O, A, Color.Red);
 
+            SnowMan1 = new SnowMan();
+
             bmp = new Bitmap(Picture.Width, Picture.Height);
             graph = Graphics.FromImage(bmp);
             pen = new Pen(Color.Blue);
         }
         private void Draw()
-        {            
-            Draw(Line1);
-            Draw(Line2);
-            Draw(Box1);
-            Draw(Circle1);
-            Draw(Circle2);
-            Draw(Line3);
-            Draw(Line4);
-            Draw(Box2);
+        {
+            Draw(SnowMan1);
+
+
 
             Picture.Image = bmp;
+        }
+
+        private void Draw(SnowMan SnowMan)
+        {
+            Draw(SnowMan.Head);
+            Draw(SnowMan.Chest);
+            Draw(SnowMan.Tummy);
+            Draw(SnowMan.LeftLeg);
+            Draw(SnowMan.RightLeg);
+            Draw(SnowMan.LeftArm);
+            Draw(SnowMan.RightArm);
         }
         private void Draw(ColorLine ColorLine)
         {

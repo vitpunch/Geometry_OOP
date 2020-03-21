@@ -1,0 +1,14 @@
+OB = new Pixel(180, 120);
+RB = 80;
+OA = new Pixel(180, 300);
+RA = 100;
+OC = new Pixel(180, 520);
+RC = 120;
+D = new Pixel( 20, 300);
+E = new Pixel(116, 223);
+J = new Pixel(340, 300);
+F = new Pixel(244, 223);
+K = new Pixel(100, 640);
+L = new Pixel(140, 600);
+M = new Pixel(220, 600);
+N = new Pixel(260, 640);
