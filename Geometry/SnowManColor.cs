@@ -1,24 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Geometry
 {
-    class SnowMan
+    class SnowManColor
     {
         Pixel OB, OA, OC, D, E, J, F, K, L, M, N;
-        int RB, RA, RC;
-        public Circle Head, Chest, Tummy;
-        public Box LeftLeg, RightLeg;
-        public Line LeftArm, RightArm;
-        public SnowMan()
+        private int RB, RA, RC;
+        public ColorCircle Head, Chest, Tummy;
+        public ColorBox LeftLeg, RightLeg;
+        public ColorLine LeftArm, RightArm;
+        public SnowManColor()
             :this(new Pixel(160,600))
         {            
         }
         
-        public SnowMan(Pixel BeginCoordinate)
+        public SnowManColor(Pixel BeginCoordinate)
         {
             OB = new Pixel(BeginCoordinate.x+20, BeginCoordinate.y-520);
             RB = 80;
@@ -34,13 +35,13 @@ namespace Geometry
             L = new Pixel(BeginCoordinate.x -20, BeginCoordinate.y-40);
             M = new Pixel(BeginCoordinate.x + 60, BeginCoordinate.y-40);
             N = new Pixel(BeginCoordinate.x + 100, BeginCoordinate.y);
-            Head = new Circle(OB, RB);
-            Chest = new Circle(OA, RA);
-            Tummy = new Circle(OC, RC);
-            LeftLeg = new Box(K, L);
-            RightLeg = new Box(M, N);
-            LeftArm = new Line(D, E);
-            RightArm = new Line(F, J);
+            Head = new ColorCircle(OB, RB, Color.Green);
+            Chest = new ColorCircle(OA, RA,Color.Red);
+            Tummy = new ColorCircle(OC, RC,Color.Orange);
+            LeftLeg = new ColorBox(K, L, Color.Aquamarine);
+            RightLeg = new ColorBox(M, N,Color.Blue);
+            LeftArm = new ColorLine(D, E, Color.Red);
+            RightArm = new ColorLine(F, J, Color.Brown);
         }
     }
 }

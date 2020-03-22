@@ -32,16 +32,8 @@ namespace Geometry
         Graphics graph;
         Pen pen;
 
-        Line Line1;
-        Line Line2;
-        ColorLine Line3;
-        ColorLine Line4;
-        Box Box1;
-        ColorBox Box2;
-        Circle Circle1;
-        ColorCircle Circle2;
         SnowMan SnowMan1;
-        SnowMan SnowMan2;
+        SnowManColor SnowMan2;
 
         Pixel A, B, C, D, E, O;
 
@@ -54,28 +46,9 @@ namespace Geometry
         }
         private void Init()
         {
-            A = new Pixel(100, 300);
-            B = new Pixel(300, 300);
-            C = new Pixel(100, 100);
-            D = new Pixel(300, 100);
-            E = new Pixel(200, 10);
-            O = new Pixel(200, 200);
-
-
-
-            Line1 = new Line(C, E);
-            Line2 = new Line(D, E);
-
-            Box1 = new Box(B, C);
-            Box2 = new ColorBox(D, E, Color.Black);
-
-            Circle1 = new Circle(O, 100);
-            Circle2 = new ColorCircle(O, 120,Color.Green);
-
-            Line3 = new ColorLine(E, B, Color.Green);
-            Line4 = new ColorLine(O, A, Color.Red);
 
             SnowMan1 = new SnowMan();
+            SnowMan2 = new SnowManColor(new Pixel(600, 500));
 
             bmp = new Bitmap(Picture.Width, Picture.Height);
             graph = Graphics.FromImage(bmp);
@@ -84,12 +57,20 @@ namespace Geometry
         private void Draw()
         {
             Draw(SnowMan1);
-
-
+            Draw(SnowMan2);
 
             Picture.Image = bmp;
         }
-
+        private void Draw(SnowManColor SnowMan)
+        {
+            Draw(SnowMan.Head);
+            Draw(SnowMan.Chest);
+            Draw(SnowMan.Tummy);
+            Draw(SnowMan.LeftLeg);
+            Draw(SnowMan.RightLeg);
+            Draw(SnowMan.LeftArm);
+            Draw(SnowMan.RightArm);
+        }
         private void Draw(SnowMan SnowMan)
         {
             Draw(SnowMan.Head);
