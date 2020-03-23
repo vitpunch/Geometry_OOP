@@ -7,20 +7,18 @@ using System.Threading.Tasks;
 
 namespace Geometry
 {
-    class ColorLine
+    class LineColor : Line 
     {
-        public Pixel Start, End;
         public Pen Pen;
 
-        public ColorLine(int StartX, int StartY, int EndX, int EndY, Color Color)
+        public LineColor(int StartX, int StartY, int EndX, int EndY, Color Color)
             : this(new Pixel(StartX, StartY), new Pixel(EndX, EndY), Color)
         {
         }
-        public ColorLine(Pixel Start, Pixel End, Color Color )
+        public LineColor(Pixel Start, Pixel End, Color Color)
+            :base(Start,End)
         {
             Pen = new Pen(Color);
-            this.Start = Start;
-            this.End = End;
         }
     }
 }

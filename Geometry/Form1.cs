@@ -48,7 +48,7 @@ namespace Geometry
         {
 
             SnowMan1 = new SnowMan();
-            SnowMan2 = new SnowManColor(new Pixel(600, 500));
+            SnowMan2 = new SnowManColor(new Pixel(400, 650));
 
             bmp = new Bitmap(Picture.Width, Picture.Height);
             graph = Graphics.FromImage(bmp);
@@ -61,15 +61,15 @@ namespace Geometry
 
             Picture.Image = bmp;
         }
-        private void Draw(SnowManColor SnowMan)
+        private void Draw(SnowManColor SnowManColor)
         {
-            Draw(SnowMan.Head);
-            Draw(SnowMan.Chest);
-            Draw(SnowMan.Tummy);
-            Draw(SnowMan.LeftLeg);
-            Draw(SnowMan.RightLeg);
-            Draw(SnowMan.LeftArm);
-            Draw(SnowMan.RightArm);
+            Draw(SnowManColor.Head);
+            Draw(SnowManColor.Chest);
+            Draw(SnowManColor.Tummy);
+            Draw(SnowManColor.LeftLeg);
+            Draw(SnowManColor.RightLeg);
+            Draw(SnowManColor.LeftArm);
+            Draw(SnowManColor.RightArm);
         }
         private void Draw(SnowMan SnowMan)
         {
@@ -81,7 +81,7 @@ namespace Geometry
             Draw(SnowMan.LeftArm);
             Draw(SnowMan.RightArm);
         }
-        private void Draw(ColorLine ColorLine)
+        private void Draw(LineColor ColorLine)
         {
             graph.DrawLine(ColorLine.Pen, ColorLine.Start.x, ColorLine.Start.y, ColorLine.End.x, ColorLine.End.y);
         }
@@ -93,7 +93,7 @@ namespace Geometry
         {
             graph.DrawRectangle(pen, box.FirstCorner.x, box.FirstCorner.y, box.width, box.height);
         }
-        private void Draw(ColorBox ColorBox)
+        private void Draw(BoxColor ColorBox)
         {
             graph.DrawRectangle(ColorBox.Pen, ColorBox.FirstCorner.x, ColorBox.FirstCorner.y, ColorBox.width, ColorBox.height);
         }
@@ -101,7 +101,7 @@ namespace Geometry
         {
             graph.DrawEllipse(pen, circle.LeftUpCorner .x,circle.LeftUpCorner.y, circle.Width, circle.Height);
         }
-        private void Draw(ColorCircle ColorCircle)
+        private void Draw(CircleColor ColorCircle)
         {
             graph.DrawEllipse(ColorCircle.Pen, ColorCircle.LeftUpCorner.x, ColorCircle.LeftUpCorner.y, ColorCircle.Width, ColorCircle.Height);
         }

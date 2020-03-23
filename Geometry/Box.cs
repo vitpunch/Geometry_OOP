@@ -22,7 +22,7 @@ namespace Geometry
             :this(new Pixel(x1,y1),new Pixel (x2,y2))
         {
         }
-        void VerifyCoord()
+        public void VerifyCoord()
         // проверка и преобразование входящих координат. Расчёт width и Height
         // FirstCorner становится верхним левым
         // OppositeCorner - правым нижним

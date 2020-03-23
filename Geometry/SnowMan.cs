@@ -8,8 +8,8 @@ namespace Geometry
 {
     class SnowMan
     {
-        Pixel OB, OA, OC, D, E, J, F, K, L, M, N;
-        int RB, RA, RC;
+        public Pixel OB, OA, OC, D, E, J, F, K, L, M, N;
+        public int RB, RA, RC;
         public Circle Head, Chest, Tummy;
         public Box LeftLeg, RightLeg;
         public Line LeftArm, RightArm;
