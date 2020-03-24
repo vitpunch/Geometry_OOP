@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Geometry
 {
-    class Box
+    class Box: Shape
     {
         public int width, height;
-        public Pixel FirstCorner, OppositeCorner;
-        public Box(Pixel FirstCorner, Pixel OppositeCorner)
+        public Pixel firstCorner, oppositeCorner;
+        public Box(Pixel firstCorner, Pixel oppositeCorner)
         {
-            this.FirstCorner = FirstCorner;
-            this.OppositeCorner = OppositeCorner;
+            this.firstCorner = firstCorner;
+            this.oppositeCorner = oppositeCorner;
             VerifyCoord();
         }
 
@@ -27,20 +27,20 @@ namespace Geometry
         // FirstCorner становится верхним левым
         // OppositeCorner - правым нижним
         {
-            if (FirstCorner.x > OppositeCorner.x)
+            if (firstCorner.x > oppositeCorner.x)
             {
-                int Temp = OppositeCorner.x;
-                OppositeCorner.x = FirstCorner.x;
-                FirstCorner.x = Temp;
+                int Temp = oppositeCorner.x;
+                oppositeCorner.x = firstCorner.x;
+                firstCorner.x = Temp;
             }
-            if (FirstCorner.y > OppositeCorner.y)
+            if (firstCorner.y > oppositeCorner.y)
             {
-                int Temp = OppositeCorner.y;
-                OppositeCorner.y = FirstCorner.y;
-                FirstCorner.y = Temp;
+                int Temp = oppositeCorner.y;
+                oppositeCorner.y = firstCorner.y;
+                firstCorner.y = Temp;
             }
-            width = Math.Abs(OppositeCorner.x - FirstCorner.x);
-            height = Math.Abs(OppositeCorner.y - FirstCorner.y);
+            width = Math.Abs(oppositeCorner.x - firstCorner.x);
+            height = Math.Abs(oppositeCorner.y - firstCorner.y);
         }
     }
 }

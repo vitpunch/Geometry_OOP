@@ -56,54 +56,54 @@ namespace Geometry
         }
         private void Draw()
         {
-            Draw(SnowMan1);
-            Draw(SnowMan2);
+            Draw(SnowMan1.SnowMan3);
+            Draw(SnowMan2.SnowMan3);
 
             Picture.Image = bmp;
         }
-        private void Draw(SnowManColor SnowManColor)
+        private void Draw(Shape[] Shape)
         {
-            Draw(SnowManColor.Head);
-            Draw(SnowManColor.Chest);
-            Draw(SnowManColor.Tummy);
-            Draw(SnowManColor.LeftLeg);
-            Draw(SnowManColor.RightLeg);
-            Draw(SnowManColor.LeftArm);
-            Draw(SnowManColor.RightArm);
+            for (int i=0;i<Shape.Length;i++)
+                Draw(Shape[i]);
         }
-        private void Draw(SnowMan SnowMan)
+        private void Draw(Shape Shape)
         {
-            Draw(SnowMan.Head);
-            Draw(SnowMan.Chest);
-            Draw(SnowMan.Tummy);
-            Draw(SnowMan.LeftLeg);
-            Draw(SnowMan.RightLeg);
-            Draw(SnowMan.LeftArm);
-            Draw(SnowMan.RightArm);
+            if(Shape.GetType()==typeof(Circle))
+                Draw((Circle)Shape);
+            if (Shape.GetType() == typeof(CircleColor))
+                Draw((CircleColor)Shape);
+            if (Shape.GetType() == typeof(Line))
+                Draw((Line)Shape);
+            if (Shape.GetType() == typeof(LineColor))
+                Draw((LineColor)Shape);
+            if (Shape.GetType() == typeof(Box))
+                Draw((Box)Shape);
+            if (Shape.GetType() == typeof(BoxColor))
+                Draw((BoxColor)Shape);
         }
         private void Draw(LineColor ColorLine)
         {
-            graph.DrawLine(ColorLine.Pen, ColorLine.Start.x, ColorLine.Start.y, ColorLine.End.x, ColorLine.End.y);
+            graph.DrawLine(ColorLine.pen, ColorLine.start.x, ColorLine.start.y, ColorLine.end.x, ColorLine.end.y);
         }
         private void Draw(Line line)
         {
-            graph.DrawLine(pen, line.Start.x, line.Start.y, line.End.x, line.End.y);
+            graph.DrawLine(pen, line.start.x, line.start.y, line.end.x, line.end.y);
         }
         private void Draw(Box box)
         {
-            graph.DrawRectangle(pen, box.FirstCorner.x, box.FirstCorner.y, box.width, box.height);
+            graph.DrawRectangle(pen, box.firstCorner.x, box.firstCorner.y, box.width, box.height);
         }
         private void Draw(BoxColor ColorBox)
         {
-            graph.DrawRectangle(ColorBox.Pen, ColorBox.FirstCorner.x, ColorBox.FirstCorner.y, ColorBox.width, ColorBox.height);
+            graph.DrawRectangle(ColorBox.Pen, ColorBox.firstCorner.x, ColorBox.firstCorner.y, ColorBox.width, ColorBox.height);
         }
         private void Draw(Circle circle)
         {
-            graph.DrawEllipse(pen, circle.LeftUpCorner .x,circle.LeftUpCorner.y, circle.Width, circle.Height);
+            graph.DrawEllipse(pen, circle.leftUpCorner .x,circle.leftUpCorner.y, circle.width, circle.height);
         }
         private void Draw(CircleColor ColorCircle)
         {
-            graph.DrawEllipse(ColorCircle.Pen, ColorCircle.LeftUpCorner.x, ColorCircle.LeftUpCorner.y, ColorCircle.Width, ColorCircle.Height);
+            graph.DrawEllipse(ColorCircle.pen, ColorCircle.leftUpCorner.x, ColorCircle.leftUpCorner.y, ColorCircle.width, ColorCircle.height);
         }
     }
 }

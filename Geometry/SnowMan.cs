@@ -10,9 +10,8 @@ namespace Geometry
     {
         public Pixel OB, OA, OC, D, E, J, F, K, L, M, N;
         public int RB, RA, RC;
-        public Circle Head, Chest, Tummy;
-        public Box LeftLeg, RightLeg;
-        public Line LeftArm, RightArm;
+
+        public Shape[] SnowMan3;
         public SnowMan()
             :this(new Pixel(160,600))
         {            
@@ -20,6 +19,9 @@ namespace Geometry
         
         public SnowMan(Pixel BeginCoordinate)
         {
+            SnowMan3 = new Shape[7];
+
+
             OB = new Pixel(BeginCoordinate.x+20, BeginCoordinate.y-520);
             RB = 80;
             OA = new Pixel(BeginCoordinate.x + 20, BeginCoordinate.y-340);
@@ -34,13 +36,14 @@ namespace Geometry
             L = new Pixel(BeginCoordinate.x -20, BeginCoordinate.y-40);
             M = new Pixel(BeginCoordinate.x + 60, BeginCoordinate.y-40);
             N = new Pixel(BeginCoordinate.x + 100, BeginCoordinate.y);
-            Head = new Circle(OB, RB);
-            Chest = new Circle(OA, RA);
-            Tummy = new Circle(OC, RC);
-            LeftLeg = new Box(K, L);
-            RightLeg = new Box(M, N);
-            LeftArm = new Line(D, E);
-            RightArm = new Line(F, J);
+            
+            SnowMan3[0] = new Circle(OB, RB);
+            SnowMan3[1] = new Circle(OA, RA);
+            SnowMan3[2] = new Circle(OC, RC);
+            SnowMan3[3] = new Box(K, L);
+            SnowMan3[4] = new Box(M, N);
+            SnowMan3[5] = new Line(D, E);
+            SnowMan3[6] = new Line(F, J);
         }
     }
 }

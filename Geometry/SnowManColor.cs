@@ -9,9 +9,6 @@ namespace Geometry
 {
     class SnowManColor : SnowMan
     {
-        public new CircleColor Head, Chest, Tummy;
-        public new BoxColor LeftLeg, RightLeg;
-        public new LineColor LeftArm, RightArm;
         public SnowManColor()
             :this(new Pixel(160,600))
         {            
@@ -20,13 +17,15 @@ namespace Geometry
         public SnowManColor(Pixel BeginCoordinate)
             :base(BeginCoordinate)
         {
-            Head = new CircleColor(OB, RB, Color.Green);
-            Chest = new CircleColor(OA, RA,Color.Red);
-            Tummy = new CircleColor(OC, RC,Color.Orange);
-            LeftLeg = new BoxColor(K, L, Color.Aquamarine);
-            RightLeg = new BoxColor(M, N,Color.Blue);
-            LeftArm = new LineColor(D, E, Color.Red);
-            RightArm = new LineColor(F, J, Color.Brown);
+            SnowMan3 = new Shape[7];
+
+            SnowMan3[0] = new CircleColor(OB, RB, Color.Green);
+            SnowMan3[1] = new CircleColor(OA, RA,Color.Red);
+            SnowMan3[2] = new CircleColor(OC, RC,Color.Orange);
+            SnowMan3[3] = new BoxColor(K, L, Color.Aquamarine);
+            SnowMan3[4] = new BoxColor(M, N,Color.Blue);
+            SnowMan3[5] = new LineColor(D, E, Color.Red);
+            SnowMan3[6] = new LineColor(F, J, Color.Brown);
         }
     }
 }
