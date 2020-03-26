@@ -10,100 +10,92 @@ using System.Windows.Forms;
 
 namespace Geometry
 {
-    public struct Pixel
-    {
-        public int x, y;
 
-        public Pixel(int x, int y)
-        {
-            this.x = x;
-            this.y = y;
-        }
-        public int Distance(Pixel OtherPixel)
-        {
-            int Cathetus1 = this.x - OtherPixel.x;
-            int Cathetus2 = this.y - OtherPixel.y;
-            return Convert.ToInt32(Math.Sqrt(Cathetus1 * Cathetus1 + Cathetus2 * Cathetus2));
-        }
-    }
     public partial class GraphicObjects : Form
     {
-        Bitmap bmp;
-        Graphics graph;
+        public Bitmap bmp;
+        public Graphics graph;
         Pen pen;
 
-        SnowMan SnowMan1;
-        SnowManColor SnowMan2;
-
-        Pixel A, B, C, D, E, O;
-
+        Shape[] snowMan;
 
         public GraphicObjects()
         {
             InitializeComponent();
             Init();
-            Draw();
+
+
         }
         private void Init()
         {
-
-            SnowMan1 = new SnowMan();
-            SnowMan2 = new SnowManColor(new Pixel(400, 650));
-
             bmp = new Bitmap(Picture.Width, Picture.Height);
             graph = Graphics.FromImage(bmp);
             pen = new Pen(Color.Blue);
-        }
-        private void Draw()
-        {
-            Draw(SnowMan1.SnowMan3);
-            Draw(SnowMan2.SnowMan3);
 
+            InitSnowMan1();
+            Draw(snowMan);
             Picture.Image = bmp;
         }
-        private void Draw(Shape[] Shape)
+        public void InitSnowMan1()
         {
-            for (int i=0;i<Shape.Length;i++)
-                Draw(Shape[i]);
+            Pixel OB, OA, OC, D, E, J, F, K, L, M, N; 
+            int RB, RA, RC;
+            
+
+            Pixel beginCoordinate = new Pixel(200, 650);
+            snowMan = new Shape[7];
+
+
+            OB = new Pixel(beginCoordinate.x + 20, beginCoordinate.y - 520);
+            RB = 80;
+            OA = new Pixel(beginCoordinate.x + 20, beginCoordinate.y - 340);
+            RA = 100;
+            OC = new Pixel(beginCoordinate.x + 20, beginCoordinate.y - 120);
+            RC = 120;
+            D = new Pixel(beginCoordinate.x - 160, beginCoordinate.y - 340);
+            E = new Pixel(beginCoordinate.x - 44, beginCoordinate.y - 417);
+            J = new Pixel(beginCoordinate.x + 180, beginCoordinate.y - 340);
+            F = new Pixel(beginCoordinate.x + 84, beginCoordinate.y - 417);
+            K = new Pixel(beginCoordinate.x - 60, beginCoordinate.y);
+            L = new Pixel(beginCoordinate.x - 20, beginCoordinate.y - 40);
+            M = new Pixel(beginCoordinate.x + 60, beginCoordinate.y - 40);
+            N = new Pixel(beginCoordinate.x + 100, beginCoordinate.y);
+
+            snowMan[0] = new Circle(OB, RB);
+            ((Circle)snowMan[0]).SetGraphics(graph);
+            ((Circle)snowMan[0]).SetPen(pen);
+            snowMan[1] = new Circle(OA, RA);
+            ((Circle)snowMan[1]).SetGraphics(graph);
+            ((Circle)snowMan[1]).SetPen(pen);
+            snowMan[2] = new Circle(OC, RC);
+            ((Circle)snowMan[2]).SetGraphics(graph);
+            ((Circle)snowMan[2]).SetPen(pen);
+            snowMan[3] = new Box(K, L);
+            ((Box)snowMan[3]).SetGraphics(graph);
+            ((Box)snowMan[3]).SetPen(pen);
+            snowMan[4] = new Box(M, N);
+            ((Box)snowMan[4]).SetGraphics(graph);
+            ((Box)snowMan[4]).SetPen(pen);
+            snowMan[5] = new Line(D, E);
+            ((Line)snowMan[5]).SetGraphics(graph);
+            ((Line)snowMan[5]).SetPen(pen);
+            snowMan[6] = new Line(F, J);
+            ((Line)snowMan[6]).SetGraphics(graph);
+            ((Line)snowMan[6]).SetPen(pen);
+        }    
+        private void Draw(Shape[] shape)
+        {
+            for (int i=0;i<shape.Length;i++)
+                Draw(shape[i]);
         }
         private void Draw(Shape Shape)
         {
             if(Shape.GetType()==typeof(Circle))
-                Draw((Circle)Shape);
-            if (Shape.GetType() == typeof(CircleColor))
-                Draw((CircleColor)Shape);
+                ((Circle)Shape).Draw();
             if (Shape.GetType() == typeof(Line))
-                Draw((Line)Shape);
-            if (Shape.GetType() == typeof(LineColor))
-                Draw((LineColor)Shape);
+                ((Line)Shape).Draw();
             if (Shape.GetType() == typeof(Box))
-                Draw((Box)Shape);
-            if (Shape.GetType() == typeof(BoxColor))
-                Draw((BoxColor)Shape);
-        }
-        private void Draw(LineColor ColorLine)
-        {
-            graph.DrawLine(ColorLine.pen, ColorLine.start.x, ColorLine.start.y, ColorLine.end.x, ColorLine.end.y);
-        }
-        private void Draw(Line line)
-        {
-            graph.DrawLine(pen, line.start.x, line.start.y, line.end.x, line.end.y);
-        }
-        private void Draw(Box box)
-        {
-            graph.DrawRectangle(pen, box.firstCorner.x, box.firstCorner.y, box.width, box.height);
-        }
-        private void Draw(BoxColor ColorBox)
-        {
-            graph.DrawRectangle(ColorBox.Pen, ColorBox.firstCorner.x, ColorBox.firstCorner.y, ColorBox.width, ColorBox.height);
-        }
-        private void Draw(Circle circle)
-        {
-            graph.DrawEllipse(pen, circle.leftUpCorner .x,circle.leftUpCorner.y, circle.width, circle.height);
-        }
-        private void Draw(CircleColor ColorCircle)
-        {
-            graph.DrawEllipse(ColorCircle.pen, ColorCircle.leftUpCorner.x, ColorCircle.leftUpCorner.y, ColorCircle.width, ColorCircle.height);
+                ((Box)Shape).Draw();
         }
     }
 }

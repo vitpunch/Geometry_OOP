@@ -49,12 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pixel.cs" />
     <Compile Include="shape\Shape.cs" />
     <Compile Include="shape\Box.cs" />
     <Compile Include="shape\Circle.cs" />
-    <Compile Include="shape\BoxColor.cs" />
-    <Compile Include="shape\CircleColor.cs" />
-    <Compile Include="shape\LineColor.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,8 +62,6 @@
     <Compile Include="shape\Line.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SnowManColor.cs" />
-    <Compile Include="SnowMan.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
