@@ -15,7 +15,6 @@ namespace Geometry
     {
         public Bitmap bmp;
         public Graphics graph;
-        Pen pen;
 
         Shape[] snowMan;
 
@@ -23,14 +22,11 @@ namespace Geometry
         {
             InitializeComponent();
             Init();
-
-
         }
         private void Init()
         {
             bmp = new Bitmap(Picture.Width, Picture.Height);
             graph = Graphics.FromImage(bmp);
-            pen = new Pen(Color.Blue);
 
             InitSnowMan1();
             Draw(snowMan);
@@ -62,26 +58,14 @@ namespace Geometry
             N = new Pixel(beginCoordinate.x + 100, beginCoordinate.y);
 
             snowMan[0] = new Circle(OB, RB);
-            ((Circle)snowMan[0]).SetGraphics(graph);
-            ((Circle)snowMan[0]).SetPen(pen);
-            snowMan[1] = new Circle(OA, RA);
-            ((Circle)snowMan[1]).SetGraphics(graph);
-            ((Circle)snowMan[1]).SetPen(pen);
+            snowMan[1] = new Circle(OA, RA, Color.Red);
             snowMan[2] = new Circle(OC, RC);
-            ((Circle)snowMan[2]).SetGraphics(graph);
-            ((Circle)snowMan[2]).SetPen(pen);
             snowMan[3] = new Box(K, L);
-            ((Box)snowMan[3]).SetGraphics(graph);
-            ((Box)snowMan[3]).SetPen(pen);
-            snowMan[4] = new Box(M, N);
-            ((Box)snowMan[4]).SetGraphics(graph);
-            ((Box)snowMan[4]).SetPen(pen);
+            snowMan[4] = new Box(M, N,Color.Green);
             snowMan[5] = new Line(D, E);
-            ((Line)snowMan[5]).SetGraphics(graph);
-            ((Line)snowMan[5]).SetPen(pen);
-            snowMan[6] = new Line(F, J);
-            ((Line)snowMan[6]).SetGraphics(graph);
-            ((Line)snowMan[6]).SetPen(pen);
+            snowMan[6] = new Line(F, J,Color.Orange);
+            for (int i = 0; i < snowMan.Length; i++)
+                snowMan[i].SetGraphics(graph);
         }    
         private void Draw(Shape[] shape)
         {

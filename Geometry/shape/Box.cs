@@ -12,26 +12,24 @@ namespace Geometry
     {
         public int width, height;
         public Pixel firstCorner, oppositeCorner;
-        protected Graphics graph;
-        protected Pen pen;
-        public void SetGraphics(Graphics graph)
-        {
-            this.graph = graph;
-        }
-        public void SetPen(Pen pen)
-        {
-            this.pen = pen;
-        }
         public Box(Pixel firstCorner, Pixel oppositeCorner)
         {
             this.firstCorner = firstCorner;
             this.oppositeCorner = oppositeCorner;
             VerifyCoord();
         }
-
         public Box(int x1, int y1, int x2, int y2)
             :this(new Pixel(x1,y1),new Pixel (x2,y2))
         {
+        }
+        public Box(int x1, int y1, int x2, int y2,Color color)
+            : this(new Pixel(x1, y1), new Pixel(x2, y2),color)
+        {
+        }
+        public Box(Pixel firstCorner, Pixel oppositeCorner,Color color)
+            :this(firstCorner, oppositeCorner)
+        {
+            pen = new Pen(color);
         }
         public void VerifyCoord()
         // проверка и преобразование входящих координат. Расчёт width и Height

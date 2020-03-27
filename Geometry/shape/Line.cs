@@ -10,17 +10,6 @@ namespace Geometry
     class Line : Shape
     {
         public Pixel start, end;
-        protected Graphics graph;
-        protected Pen pen;
-        public void SetGraphics(Graphics graph)
-        {
-            this.graph = graph;
-        }
-        public void SetPen(Pen pen)
-        {
-            this.pen = pen;
-        }
-
         public Line(int startX, int startY, int endX, int endY)
             : this(new Pixel(startX, startY), new Pixel(endX, endY))
         {
@@ -29,6 +18,11 @@ namespace Geometry
         {
             this.start = start;
             this.end = end;
+        }
+        public Line(Pixel start, Pixel end,Color color)
+            :this(start, end)
+        {
+            pen = new Pen(color);
         }
         public void Draw()
         {

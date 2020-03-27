@@ -1,12 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace Geometry
 {
     class Shape
     {
+        public Shape()
+        {     
+            pen = new Pen(Color.Blue);
+        }
+        protected Graphics graph;
+        protected Pen pen;
+        public void SetGraphics(Graphics graph)
+        {
+            this.graph = graph;
+        }        
     }
 }
