@@ -2,7 +2,7 @@
 
 namespace Geometry
 {
-    class Shape
+    abstract class Shape
     {
         public Shape()
         {     
@@ -13,6 +13,7 @@ namespace Geometry
         public void SetGraphics(Graphics graph)
         {
             this.graph = graph;
-        }        
+        }
+        abstract public void Draw();
     }
 }

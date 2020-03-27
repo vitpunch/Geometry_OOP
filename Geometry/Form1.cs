@@ -67,19 +67,10 @@ namespace Geometry
             for (int i = 0; i < snowMan.Length; i++)
                 snowMan[i].SetGraphics(graph);
         }    
-        private void Draw(Shape[] shape)
+        private void Draw(Shape[] shapes)
         {
-            for (int i=0;i<shape.Length;i++)
-                Draw(shape[i]);
-        }
-        private void Draw(Shape Shape)
-        {
-            if(Shape.GetType()==typeof(Circle))
-                ((Circle)Shape).Draw();
-            if (Shape.GetType() == typeof(Line))
-                ((Line)Shape).Draw();
-            if (Shape.GetType() == typeof(Box))
-                ((Box)Shape).Draw();
-        }
+            for (int i=0;i<shapes.Length;i++)
+                shapes[i].Draw();
+        }        
     }
 }

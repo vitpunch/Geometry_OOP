@@ -33,7 +33,7 @@ namespace Geometry
             : this(new Pixel(centerX, centerY), radius, color)
         {
         }
-        public void Draw()
+        override public void Draw()
         {
             graph.DrawEllipse(pen,
                 leftUpCorner.x, leftUpCorner.y,

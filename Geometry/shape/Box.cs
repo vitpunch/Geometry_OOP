@@ -51,7 +51,7 @@ namespace Geometry
             width = Math.Abs(oppositeCorner.x - firstCorner.x);
             height = Math.Abs(oppositeCorner.y - firstCorner.y);
         }
-        public void Draw()
+        override public void Draw()
         {
             graph.DrawRectangle(pen, firstCorner.x, firstCorner.y, width, height);
         }

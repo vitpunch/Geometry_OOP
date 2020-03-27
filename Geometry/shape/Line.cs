@@ -24,7 +24,7 @@ namespace Geometry
         {
             pen = new Pen(color);
         }
-        public void Draw()
+        override public void Draw()
         {
             graph.DrawLine(pen, start.x, start.y, end.x, end.y);
         }
