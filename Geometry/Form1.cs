@@ -16,7 +16,7 @@ namespace Geometry
         public Bitmap bmp;
         public Graphics graph;
 
-        Shape[] snowMan;
+        Sprite snowMan;
 
         public GraphicObjects()
         {
@@ -29,7 +29,7 @@ namespace Geometry
             graph = Graphics.FromImage(bmp);
 
             InitSnowMan1();
-            Draw(snowMan);
+            snowMan.Draw();
             Picture.Image = bmp;
         }
         public void InitSnowMan1()
@@ -39,7 +39,8 @@ namespace Geometry
             
 
             Pixel beginCoordinate = new Pixel(200, 650);
-            snowMan = new Shape[7];
+            snowMan = new Sprite();
+            snowMan.SetGraphics(graph);
 
 
             OB = new Pixel(beginCoordinate.x + 20, beginCoordinate.y - 520);
@@ -57,20 +58,14 @@ namespace Geometry
             M = new Pixel(beginCoordinate.x + 60, beginCoordinate.y - 40);
             N = new Pixel(beginCoordinate.x + 100, beginCoordinate.y);
 
-            snowMan[0] = new Circle(OB, RB);
-            snowMan[1] = new Circle(OA, RA, Color.Red);
-            snowMan[2] = new Circle(OC, RC);
-            snowMan[3] = new Box(K, L);
-            snowMan[4] = new Box(M, N,Color.Green);
-            snowMan[5] = new Line(D, E);
-            snowMan[6] = new Line(F, J,Color.Orange);
-            for (int i = 0; i < snowMan.Length; i++)
-                snowMan[i].SetGraphics(graph);
+            snowMan.AddShape(new Circle(OB, RB));
+            snowMan.AddShape(new Circle(OA, RA, Color.Red));
+            snowMan.AddShape(new Circle(OC, RC));
+            snowMan.AddShape(new Box(K, L));
+            snowMan.AddShape(new Box(M, N,Color.Green));
+            snowMan.AddShape(new Line(D, E));
+            snowMan.AddShape(new Line(F, J,Color.Orange));
         }    
-        private void Draw(Shape[] shapes)
-        {
-            for (int i=0;i<shapes.Length;i++)
-                shapes[i].Draw();
-        }        
+    
     }
 }
