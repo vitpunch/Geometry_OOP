@@ -26,7 +26,7 @@ namespace Geometry
         }
         override public void Draw()
         {
-            graph.DrawLine(pen, start.x, start.y, end.x, end.y);
+            graph.DrawLine(pen, start.x+position.x, start.y+position.y, end.x+position.x, end.y+position.y);
         }
     }
 }

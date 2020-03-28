@@ -18,6 +18,8 @@ namespace Geometry
 
         Sprite snowMan;
         Circle circle;
+        Box box;
+        Line line;
 
         public GraphicObjects()
         {
@@ -37,10 +39,21 @@ namespace Geometry
         private void Demo()
         {
             Pixel a = new Pixel(0, 0);
+
             circle = new Circle(a, 20);
             circle.Move(new Pixel(100, 100));
             circle.SetGraphics(graph);
             circle.Draw();
+
+            box = new Box(new Pixel(a.x-25,a.y-22), new Pixel(a.x+25,a.y+10));
+            box.Move(new Pixel(100, 100));
+            box.SetGraphics(graph);
+            box.Draw();
+
+            line = new Line(a, new Pixel(a.x, a.y + 80));
+            line.Move(new Pixel(100, 100));
+            line.SetGraphics(graph);
+            line.Draw();
         }
         public void InitSnowMan1()
         {
@@ -79,8 +92,18 @@ namespace Geometry
 
         private void buttonMoveMe_Click(object sender, EventArgs e)
         {
-            circle.Move(new Pixel(150, 150));
+            Pixel p = new Pixel(150, 150);
+            circle.Move(p);
             circle.Draw();
+
+            box.Move(p);
+            box.Draw();
+
+            line.Move(p);
+            line.Draw();
+
+
+
             picture.Image = bmp;
         }
     }

@@ -53,7 +53,7 @@ namespace Geometry
         }
         override public void Draw()
         {
-            graph.DrawRectangle(pen, firstCorner.x, firstCorner.y, width, height);
+            graph.DrawRectangle(pen, firstCorner.x+position.x, firstCorner.y+position.y, width, height);
         }
     }
 }
