@@ -17,6 +17,7 @@ namespace Geometry
         public Graphics graph;
 
         Sprite snowMan;
+        Circle circle;
 
         public GraphicObjects()
         {
@@ -25,12 +26,21 @@ namespace Geometry
         }
         private void Init()
         {
-            bmp = new Bitmap(Picture.Width, Picture.Height);
+            bmp = new Bitmap(picture.Width, picture.Height);
             graph = Graphics.FromImage(bmp);
 
-            InitSnowMan1();
-            snowMan.Draw();
-            Picture.Image = bmp;
+            Demo();
+            //InitSnowMan1();
+            //snowMan.Draw();
+            picture.Image = bmp;
+        }
+        private void Demo()
+        {
+            Pixel a = new Pixel(0, 0);
+            circle = new Circle(a, 20);
+            circle.Move(new Pixel(100, 100));
+            circle.SetGraphics(graph);
+            circle.Draw();
         }
         public void InitSnowMan1()
         {
@@ -65,7 +75,13 @@ namespace Geometry
             snowMan.AddShape(new Box(M, N,Color.Green));
             snowMan.AddShape(new Line(D, E));
             snowMan.AddShape(new Line(F, J,Color.Orange));
-        }    
-    
+        }
+
+        private void buttonMoveMe_Click(object sender, EventArgs e)
+        {
+            circle.Move(new Pixel(150, 150));
+            circle.Draw();
+            picture.Image = bmp;
+        }
     }
 }

@@ -4,6 +4,7 @@ namespace Geometry
 {
     abstract class Shape
     {
+        protected Pixel position;
         public Shape()
         {     
             pen = new Pen(Color.Blue);
@@ -15,5 +16,9 @@ namespace Geometry
             this.graph = graph;
         }
         abstract public void Draw();
+        public void Move(Pixel position)
+        {
+            this.position = position;
+        }
     }
 }

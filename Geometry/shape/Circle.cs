@@ -36,7 +36,7 @@ namespace Geometry
         override public void Draw()
         {
             graph.DrawEllipse(pen,
-                leftUpCorner.x, leftUpCorner.y,
+                leftUpCorner.x+position.x, leftUpCorner.y+position.y,
                 width, height);
         }
     }
