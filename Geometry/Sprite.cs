@@ -22,6 +22,12 @@ namespace Geometry
         {
             shapes.Clear();
         }
+        override public void Move(Pixel position)
+        {
+            base.Move(position);
+            foreach (Shape shape in shapes)
+                shape.Move(position);
+        }
         public override void Draw()
         {
             foreach (Shape shape in shapes)

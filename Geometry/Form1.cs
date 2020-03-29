@@ -17,6 +17,7 @@ namespace Geometry
         public Graphics graph;
 
         Sprite snowMan;
+        Sprite demo;
         Circle circle;
         Box box;
         Line line;
@@ -24,62 +25,40 @@ namespace Geometry
         public GraphicObjects()
         {
             InitializeComponent();
-            Init();
-        }
-        private void Init()
-        {
+
             bmp = new Bitmap(picture.Width, picture.Height);
             graph = Graphics.FromImage(bmp);
 
-            Demo();
-            //InitSnowMan1();
-            //snowMan.Draw();
+            //Demo();
+            InitSnowMan1();
+            snowMan.Move(new Pixel(300,650));
+            snowMan.Draw();
+
             picture.Image = bmp;
-        }
-        private void Demo()
-        {
-            Pixel a = new Pixel(0, 0);
-
-            circle = new Circle(a, 20);
-            circle.Move(new Pixel(100, 100));
-            circle.SetGraphics(graph);
-            circle.Draw();
-
-            box = new Box(new Pixel(a.x-25,a.y-22), new Pixel(a.x+25,a.y+10));
-            box.Move(new Pixel(100, 100));
-            box.SetGraphics(graph);
-            box.Draw();
-
-            line = new Line(a, new Pixel(a.x, a.y + 80));
-            line.Move(new Pixel(100, 100));
-            line.SetGraphics(graph);
-            line.Draw();
         }
         public void InitSnowMan1()
         {
             Pixel OB, OA, OC, D, E, J, F, K, L, M, N; 
-            int RB, RA, RC;
-            
-
-            Pixel beginCoordinate = new Pixel(200, 650);
+            int RB, RA, RC;           
+           
             snowMan = new Sprite();
             snowMan.SetGraphics(graph);
 
 
-            OB = new Pixel(beginCoordinate.x + 20, beginCoordinate.y - 520);
+            OB = new Pixel(20,  - 520);
             RB = 80;
-            OA = new Pixel(beginCoordinate.x + 20, beginCoordinate.y - 340);
+            OA = new Pixel( + 20,  - 340);
             RA = 100;
-            OC = new Pixel(beginCoordinate.x + 20, beginCoordinate.y - 120);
+            OC = new Pixel( + 20,  - 120);
             RC = 120;
-            D = new Pixel(beginCoordinate.x - 160, beginCoordinate.y - 340);
-            E = new Pixel(beginCoordinate.x - 44, beginCoordinate.y - 417);
-            J = new Pixel(beginCoordinate.x + 180, beginCoordinate.y - 340);
-            F = new Pixel(beginCoordinate.x + 84, beginCoordinate.y - 417);
-            K = new Pixel(beginCoordinate.x - 60, beginCoordinate.y);
-            L = new Pixel(beginCoordinate.x - 20, beginCoordinate.y - 40);
-            M = new Pixel(beginCoordinate.x + 60, beginCoordinate.y - 40);
-            N = new Pixel(beginCoordinate.x + 100, beginCoordinate.y);
+            D = new Pixel( - 160,  - 340);
+            E = new Pixel( - 44,  - 417);
+            J = new Pixel( + 180,  - 340);
+            F = new Pixel( + 84,  - 417);
+            K = new Pixel( - 60, 0);
+            L = new Pixel( - 20,  - 40);
+            M = new Pixel( + 60,  - 40);
+            N = new Pixel( + 100, 0);
 
             snowMan.AddShape(new Circle(OB, RB));
             snowMan.AddShape(new Circle(OA, RA, Color.Red));
@@ -90,19 +69,11 @@ namespace Geometry
             snowMan.AddShape(new Line(F, J,Color.Orange));
         }
 
-        private void buttonMoveMe_Click(object sender, EventArgs e)
+        private void ButtonMoveMe_Click(object sender, EventArgs e)
         {
-            Pixel p = new Pixel(150, 150);
-            circle.Move(p);
-            circle.Draw();
-
-            box.Move(p);
-            box.Draw();
-
-            line.Move(p);
-            line.Draw();
-
-
+            Pixel p = new Pixel(350, 700);
+            snowMan.Move(p);
+            snowMan.Draw();
 
             picture.Image = bmp;
         }

@@ -52,7 +52,7 @@
             this.buttonMoveMe.TabIndex = 1;
             this.buttonMoveMe.Text = "move";
             this.buttonMoveMe.UseVisualStyleBackColor = true;
-            this.buttonMoveMe.Click += new System.EventHandler(this.buttonMoveMe_Click);
+            this.buttonMoveMe.Click += new System.EventHandler(this.ButtonMoveMe_Click);
             // 
             // GraphicObjects
             // 

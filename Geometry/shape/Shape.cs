@@ -16,7 +16,7 @@ namespace Geometry
             this.graph = graph;
         }
         abstract public void Draw();
-        public void Move(Pixel position)
+        virtual public void Move(Pixel position)
         {
             this.position = position;
         }
